@@ -1,6 +1,18 @@
 from selenium.webdriver.common.by import By
-
+from dictonary import xpath
 def check_avalibility(driver):
-    a = str(driver.find_element_by_class_name("add-to-basket-button"))
-    #c-btn c-btn_text o-pay__btn sel-pdp-button-place-to-cart sel-button-place-to-cart sel-product-tile-button-to-cart')
-    return a
+    avalibility = False
+    i = 0
+    for paths in xpath:
+        i = i+1
+        print(str(i)+"\n"+str(driver.find_elements_by_xpath(paths))+"\n")
+        if (driver.find_elements_by_xpath(xpath[paths])!=[]):
+            avalibility = True
+            
+    #avalibility = driver.find_elements_by_xpath(xpath[])
+    return avalibility
+    
+
+# xpath
+# /html/body/div[2]/div/div[3]/div[1]/div[3]/div[2]/div/div[2]/div[1]/input
+# /html/body/div[2]/div/div[3]/div[1]/div[3]/div[2]/div/div[1]/div[1]/input
